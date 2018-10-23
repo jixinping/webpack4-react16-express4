@@ -14,7 +14,7 @@ class Main extends React.Component {
                     <li className={style.proccess_tatil}>流程1 </li>
                     <li className={style.lead}><input type="button" value="同意" onClick={agree}/></li>
                     <li className={style.lead}><input type="button" value="不同意" onClick={refuse}/></li>
-                    <li className={style.lead}><input type="button" value="详情" onClick={detial}/></li>
+                    <li className={style.lead}><input type="button" value="详情" onClick={detail}/></li>
                 </ul>
             </div>
         </div>
@@ -23,20 +23,31 @@ class Main extends React.Component {
 export default Main;
 
 function agree() {
-    alert(12222);
-    $.post("/api/process",{type:"agree",name:"processOne"},function(result){
+    $.post("http://localhost:3000/process",{type:"agree",id:"processOne"},function(result){
         if(result.code==200){
-            alert(result.value);
+            alert(result.retData.value);
         } else {
             alert(result.msg);
         }
     });
 }
 
-function detial() {
-    alert(12222);
+function detail() {
+    $.post("http://localhost:3000/process",{type:"detail",id:"processOne"},function(result){
+        if(result.code==200){
+            alert(result.retData.name);
+        } else {
+            alert(result.msg);
+        }
+    });
 }
 
 function refuse() {
-    alert(12222);
+    $.post("http://localhost:3000/process",{type:"refuse",id:"processOne"},function(result){
+        if(result.code==200){
+            alert(result.retData.value);
+        } else {
+            alert(result.msg);
+        }
+    });
 }

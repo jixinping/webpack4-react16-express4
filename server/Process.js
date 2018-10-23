@@ -4,9 +4,9 @@ var log = log4js.getLogger('test');
 var oracleOperater = require('./oracleOperater');
 
 exports.entrance = function(data, res) {
-    log.info("processOne entrance recive data:", data)
-    var type = data.type;
-    var processId = data.id;
+    log.info("processOne entrance recive data:", data.body)
+    var type = data.body.type;
+    var processId = data.body.id;
     log.info("type judge=",type == 'agree');
     var retData = "";
     if(type == 'agree') {
