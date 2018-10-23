@@ -43,14 +43,19 @@
 	margin-top: 5px;
 }
 .nav{
-	float: right;
-	margin-top:5%;
-	margin-right: 50%;
+	float: left;
+	margin-top: 70px;
 	margin-bottom: 70px;
 	text-align: center;
 	display: inline-block;
 	height: 70px;
 	overflow: hidden;
+}
+.proccess_tatil {
+	float: left;
+	list-style-type: none;
+	margin-left: 15px;
+	margin-top: 15px;
 }
 .lead {
 	color: #0085a1;

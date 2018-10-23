@@ -1,4 +1,5 @@
 var path = require('path');
+var proxy = require('http-proxy-middleware')
 
 module.exports = {
     module: {
@@ -20,6 +21,18 @@ module.exports = {
             {
                 test: /\.(jpg|png|jpeg|gif)$/,
                 loader: "file-loader"
+            }
+        ]
+    },
+    devServer: {
+        host: 'localhost',
+        port: '8080',
+        proxy: [
+            {
+                context: 'api/',
+                target: 'http://localhost:3000',
+                changeOrigin: true,
+                secure: false
             }
         ]
     }

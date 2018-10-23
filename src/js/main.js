@@ -1,9 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Route} from 'react-router';
+import $ from 'jquery';
 import style from '../css/Main.css'
-
-import Lists from './Lists.js';
 
 class Main extends React.Component {
     render () {
@@ -13,14 +10,33 @@ class Main extends React.Component {
                 <h1 className={style.title}>Hello admin</h1>
             </div>
             <div className={style.nav}>
-                <ul role="nav" >
-                    <li className={style.lead}><Link to="/agree">同意</Link></li>
-                    <li className={style.lead}><Link to="/refuse">不同意</Link></li>
-                    <li className={style.lead}><Link to="/detial">详情</Link></li>
+                <ul role="nav">
+                    <li className={style.proccess_tatil}>流程1 </li>
+                    <li className={style.lead}><input type="button" value="同意" onClick={agree}/></li>
+                    <li className={style.lead}><input type="button" value="不同意" onClick={refuse}/></li>
+                    <li className={style.lead}><input type="button" value="详情" onClick={detial}/></li>
                 </ul>
-                <Route path="/detial" component={Lists}/>
             </div>
         </div>
     }
 }
 export default Main;
+
+function agree() {
+    alert(12222);
+    $.post("/api/process",{type:"agree",name:"processOne"},function(result){
+        if(result.code==200){
+            alert(result.value);
+        } else {
+            alert(result.msg);
+        }
+    });
+}
+
+function detial() {
+    alert(12222);
+}
+
+function refuse() {
+    alert(12222);
+}

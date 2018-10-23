@@ -1,6 +1,5 @@
 var express = require('express');
-var processOne = require('../server/processOne');
-var processTwo = require('../server/processTwo');
+var processOne = require('../server/Process');
 
 var router = express.Router();
 
