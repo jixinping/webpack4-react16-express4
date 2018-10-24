@@ -23,7 +23,7 @@ class Main extends React.Component {
 export default Main;
 
 function agree() {
-    $.post("http://localhost:3000/process",{type:"agree",id:"processOne"},function(result){
+    $.post("/process",{type:"agree",id:"processOne"},function(result){
         if(result.code==200){
             alert(result.retData.value);
         } else {
@@ -33,7 +33,7 @@ function agree() {
 }
 
 function detail() {
-    $.post("http://localhost:3000/process",{type:"detail",id:"processOne"},function(result){
+    $.post("/process",{type:"detail",id:"processOne"},function(result){
         if(result.code==200){
             alert(result.retData.name);
         } else {
@@ -43,7 +43,7 @@ function detail() {
 }
 
 function refuse() {
-    $.post("http://localhost:3000/process",{type:"refuse",id:"processOne"},function(result){
+    $.post("/process",{type:"refuse",id:"processOne"},function(result){
         if(result.code==200){
             alert(result.retData.value);
         } else {

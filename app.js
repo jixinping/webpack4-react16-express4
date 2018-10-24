@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var process = require('./server/Process');
+var oracleOperater = require('./server/oracleOperater');
 
 var app = express();
 //设置跨域解决
@@ -32,6 +33,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.post('/process', process.entrance);
 
+
+
+app.get('/test', function (req, res, next) {
+    oracleOperater.query();
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));
@@ -47,5 +54,4 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('view/error');
 });
-
 module.exports = app;

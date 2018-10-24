@@ -5,7 +5,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('view/index', { title: 'Express' });
+  res.render('view/index',{ title: 'Express' });
 });
 
 router.post('/processOne', function(req, res, next) {

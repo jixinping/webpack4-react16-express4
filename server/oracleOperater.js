@@ -1,18 +1,33 @@
 var oracledb = require('oracledb');
-const co = require("zco");
 const dbConfig = require('./config/oracleConfig');
-//const con = oracledb.getConnection(config.myMaster);
 
 function query(){
-    var sql="SELECT * FROM user_tables where rownum<10";
-    return co(function*(co_next){
-        let [err, result] = yield con.execute(sql);
-        if(err){
-            return {"returnCode":1,"returnMessage":err.message}
-        }
-        console.log(result.rows)
-        return {"returnCode":0,"data":result.rows}
-    });
+    var resultData="";
+    var sql="SELECT * FROM A where rownum<10";
+    var oracledb = require('oracledb');
+    const dbConfig = require('./server/config/oracleConfig');
+    oracledb.getConnection(
+        {
+            user: dbConfig.myMaster.user,
+            password: dbConfig.myMaster.password,
+            connectString:dbConfig.myMaster.connectString
+        },
+        function (err, connection) {
+            if (err) {
+                console.error(err.message);
+                return;
+            }
+            connection.execute(
+                sql,
+                function (err, result) {
+                    if (err) {
+                        console.error(err.message);
+                        return;
+                    }
+                    resultData=result.rows;
+                    console.log("************"+JSON.stringify(result.rows))
+                });
+        });
 }
 
 function query1(){

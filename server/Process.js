@@ -1,7 +1,7 @@
 var log4js = require("log4js").configure(require("../logConf.json"));
 var log = log4js.getLogger('test');
 
-var oracleOperater = require('./oracleOperater');
+var OracleOperater = require('./js/OracleOperater');
 
 exports.entrance = function(data, res) {
     log.info("processOne entrance recive data:", data.body)
@@ -27,11 +27,15 @@ exports.entrance = function(data, res) {
 }
 
 function agree(processId){
+    var dbTest = new OracleOperater();
+    var data = dbTest.executeSql("SELECT * FROM A where rownum<10");
+    console.log("################"+data);
     if(processId) {
         var temp={};
         var proccessName = processId;
         temp.key='name';
         temp.value=proccessName + "审核通过！";
+        temp.value=data;
         return temp;
     } else {
         return "";
@@ -39,11 +43,15 @@ function agree(processId){
 }
 
 function refuse(processId){
+    var dbTest = new OracleOperater();
+    var data = dbTest.executeSql("SELECT * FROM A where rownum<10", false);
+    console.log("################"+data);
     if(processId) {
         var temp={};
         var proccessName = processId;
         temp.key='name';
         temp.value=proccessName + "审核不通过！";
+        temp.value=data;
         return temp;
     } else {
         return "";
