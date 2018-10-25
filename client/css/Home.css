@@ -1,15 +1,80 @@
-.index {
-	margin-top: 10px;
-	margin-bottom: 50px;
+/* :global {
+	a {
+		text-decoration-style: none;
+	}
+	#contents {
+		margin: 80px auto;
+		width: 50%;
+		min-height: 600px;
+	}
+	#contents h3 {
+		color: #2085c5;
+		margin-bottom: 20px;
+	}
+};
+ */
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	vertical-align: middle;
+	box-shadow: 0 0 10px rgba(14, 14, 14, .26);
+	background-color: rgba(255, 255, 255, 0.98);
+	height: 55px;
+	overflow: hidden;
 }
-.tip {
+.imgBorder {
+	width: 45px;
+	height: 45px;
+	float: left;
+	margin-left: 18%;
+	margin-top: 5px;
+	overflow: hidden;
+	border-radius: 22.5px
+}
+.img {
+	width: 45px;
+	height: 45px;
+}
+.title {
+	float: left;
+	margin-left: 2%;
+	margin-top: 5px;
+}
+.nav{
+	float: left;
+	margin-top: 70px;
+	margin-bottom: 70px;
+	text-align: center;
+	display: inline-block;
+	height: 70px;
+	overflow: hidden;
+}
+.proccess_tatil {
+	float: left;
+	list-style-type: none;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+.lead {
+	color: #0085a1;
+	float: left;
+	list-style-type: none;
 	margin-left: 20px;
-	margin-top: 10px;
+	margin-top: 15px;
 }
-.content {
-	width: 70%;
-	margin: 0 auto;
+.contents {
+	margin: 90px auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 60%;
+	min-height: 400px;
 }
-.github {
+.footer {
+	width: 40%;
+	height: 100px;
 	margin: 30px auto;
+	text-align: center;
+	vertical-align: middle;
 }

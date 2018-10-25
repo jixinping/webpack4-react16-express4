@@ -1,7 +1,7 @@
-var log4js = require("log4js").configure(require("../logConf.json"));
+var log4js = require("log4js").configure(require("../../logConf.json"));
 var log = log4js.getLogger('test');
 
-var OracleOperater = require('./js/OracleOperater');
+var OracleOperater = require('../js/OracleOperater');
 
 exports.entrance = function(data, res) {
     log.info("processOne entrance recive data:", data.body)

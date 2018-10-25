@@ -1,5 +1,5 @@
 var oracledb = require('oracledb');
-const dbConfig = require('./config/oracleConfig');
+const dbConfig = require('../config/oracleConfig');
 oracledb.getConnection(
     {
         user          : dbConfig.user,

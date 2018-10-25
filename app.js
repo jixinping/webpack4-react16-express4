@@ -7,9 +7,6 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var process = require('./public/Process');
-var oracleOperater = require('./public/oracleOperater');
-
 var app = express();
 //设置跨域解决
 app.use(function (req, res, next) {
@@ -31,11 +28,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.post('/process', process.entrance);
-
-app.get('/test', function (req, res, next) {
-    oracleOperater.query();
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,5 +1,5 @@
 var express = require('express');
-var processOne = require('../public/Process');
+var process = require('../public/api/Process');
 
 var router = express.Router();
 
@@ -8,12 +8,6 @@ router.get('/', function(req, res, next) {
   res.render('view/index',{ title: 'Express' });
 });
 
-router.post('/processOne', function(req, res, next) {
-    processOne.entrance(req.body,res);
-});
-
-router.post('/processTwo', function(req, res, next) {
-    processTwo.entrance(req.body,res);
-});
+router.post('/process', process.entrance);
 
 module.exports = router;
