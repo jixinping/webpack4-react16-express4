@@ -11,7 +11,7 @@ class Main extends React.Component {
             </div>
             <div className={style.nav}>
                 <ul role="nav">
-                    <li className={style.proccess_tatil}>流程1 </li>
+                    <li className={style.proccess_tatil}>流程5 </li>
                     <li className={style.lead}><input type="button" value="同意" onClick={agree}/></li>
                     <li className={style.lead}><input type="button" value="不同意" onClick={refuse}/></li>
                     <li className={style.lead}><input type="button" value="详情" onClick={detail}/></li>

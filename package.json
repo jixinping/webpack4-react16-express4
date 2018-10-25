@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "client-build": "webpack --mode development",
-    "client": "npx webpack-dev-server --mode development --output-public-path public/clientpack/js",
-    "start": "node ./bin/www",
+    "client": "npx webpack-dev-server --mode development --output-public-path public/client/js",
+    "start": "nodemon ./bin/www",
+    "debug": "nodemon --debug ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "nodemon": "^1.18.4",
     "webpack": "^4.21.0"
   },
   "dependencies": {
