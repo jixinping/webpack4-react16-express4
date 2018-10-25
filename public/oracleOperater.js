@@ -5,7 +5,7 @@ function query(){
     var resultData="";
     var sql="SELECT * FROM A where rownum<10";
     var oracledb = require('oracledb');
-    const dbConfig = require('./server/config/oracleConfig');
+    const dbConfig = require('./public/config/oracleConfig');
     oracledb.getConnection(
         {
             user: dbConfig.myMaster.user,

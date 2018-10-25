@@ -7,8 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var process = require('./server/Process');
-var oracleOperater = require('./server/oracleOperater');
+var process = require('./public/Process');
+var oracleOperater = require('./public/oracleOperater');
 
 var app = express();
 //设置跨域解决
@@ -20,20 +20,18 @@ app.use(function (req, res, next) {
 });
 
 // view engine setup
-app.set('views', path.join(__dirname, 'server'));
+app.set('views', path.join(__dirname, 'public'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'server')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.post('/process', process.entrance);
-
-
 
 app.get('/test', function (req, res, next) {
     oracleOperater.query();
